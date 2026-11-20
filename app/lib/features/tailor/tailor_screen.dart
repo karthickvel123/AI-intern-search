@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../feed/models/job_match.dart';
 import '../resume/resume_provider.dart';
+import '../tracker/tracker_provider.dart';
 import 'tailor_provider.dart';
 
 class TailorScreen extends ConsumerWidget {
@@ -13,8 +14,8 @@ class TailorScreen extends ConsumerWidget {
   const TailorScreen({super.key, required this.job});
 
   Color _getScoreColor(int score) {
-    if (score >= 80) return const Color(0xFF10B981);
-    if (score >= 60) return const Color(0xFF6366F1);
+    if (score >= 90) return const Color(0xFF10B981);
+    if (score >= 80) return const Color(0xFF6366F1);
     return const Color(0xFF64748B);
   }
 
@@ -55,6 +56,22 @@ class TailorScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(job.company),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.bookmark_add_outlined),
+            tooltip: 'Save to Tracker',
+            onPressed: () {
+              ref.read(trackerProvider.notifier).saveJob(
+                    jobId: job.id ?? job.externalId,
+                    company: job.company,
+                    title: job.title,
+                    location: job.location,
+                    notes: 'Tailored for ${job.company}',
+                  );
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Saved to Application Tracker!')),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.open_in_new),
             tooltip: 'Apply on Company Site',
@@ -101,26 +118,19 @@ class TailorScreen extends ConsumerWidget {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                           decoration: BoxDecoration(
-                            color: scoreColor.withValues(alpha: 0.15),
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: scoreColor.withValues(alpha: 0.4)),
+                            color: scoreColor.withOpacity(0.15),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: scoreColor.withOpacity(0.4)),
                           ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.auto_awesome, size: 14, color: scoreColor),
-                              const SizedBox(width: 4),
-                              Text(
-                                '${job.matchScore}% Match',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: scoreColor,
-                                ),
-                              ),
-                            ],
+                          child: Text(
+                            '${job.matchScore}% Match',
+                            style: TextStyle(
+                              color: scoreColor,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                            ),
                           ),
                         ),
                       ],
@@ -128,47 +138,36 @@ class TailorScreen extends ConsumerWidget {
                     const SizedBox(height: 12),
                     Wrap(
                       spacing: 8,
-                      runSpacing: 6,
+                      runSpacing: 4,
                       children: [
                         if (job.location != null)
                           Chip(
-                            avatar: const Icon(Icons.place_outlined, size: 14),
-                            label: Text(job.location!),
+                            avatar: const Icon(Icons.location_on_outlined, size: 14),
+                            label: Text(job.location!, style: const TextStyle(fontSize: 11)),
                           ),
                         if (job.isRemote)
-                          const Chip(
-                            avatar: Icon(Icons.public, size: 14),
-                            label: Text('Remote'),
+                          Chip(
+                            avatar: const Icon(Icons.wifi, size: 14),
+                            label: const Text('Remote', style: TextStyle(fontSize: 11)),
                           ),
-                        Chip(
-                          avatar: const Icon(Icons.source_outlined, size: 14),
-                          label: Text(job.source),
-                        ),
+                        if (job.ghostJobFlag)
+                          Chip(
+                            avatar: const Icon(Icons.warning_amber, size: 14, color: Colors.red),
+                            label: const Text('Ghost Job Flagged', style: TextStyle(fontSize: 11, color: Colors.red)),
+                            backgroundColor: Colors.red.withOpacity(0.1),
+                          ),
                       ],
                     ),
-                    if (job.ghostJobFlag) ...[
-                      const SizedBox(height: 10),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Colors.red.withValues(alpha: 0.1),
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
-                        ),
-                        child: const Row(
-                          children: [
-                            Icon(Icons.warning_amber_rounded, size: 18, color: Colors.red),
-                            SizedBox(width: 8),
-                            Expanded(
-                              child: Text(
-                                'Ghost Job Warning: Listing is over 30 days old or demands 3+ years experience for an internship role.',
-                                style: TextStyle(fontSize: 12, color: Colors.red),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                    const Divider(height: 24),
+                    Text(
+                      'Job Description:',
+                      style: theme.textTheme.labelMedium?.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      job.description,
+                      style: const TextStyle(fontSize: 13, height: 1.4),
+                    ),
                   ],
                 ),
               ),
@@ -176,16 +175,22 @@ class TailorScreen extends ConsumerWidget {
 
             const SizedBox(height: 16),
 
-            // Match Breakdown Callout
+            // AI Match Breakdown
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'AI Match Rationale',
-                      style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+                    Row(
+                      children: [
+                        Icon(Icons.psychology_outlined, color: theme.colorScheme.primary),
+                        const SizedBox(width: 8),
+                        Text(
+                          'AI Match Analysis',
+                          style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 8),
                     Text(
@@ -207,12 +212,12 @@ class TailorScreen extends ConsumerWidget {
                         ...job.matchedSkills.map((s) => Chip(
                               avatar: const Icon(Icons.check, size: 14, color: Colors.green),
                               label: Text(s, style: const TextStyle(fontSize: 12)),
-                              backgroundColor: Colors.green.withValues(alpha: 0.1),
+                              backgroundColor: Colors.green.withOpacity(0.1),
                             )),
                         ...job.missingSkills.map((s) => Chip(
                               avatar: const Icon(Icons.priority_high, size: 14, color: Colors.orange),
                               label: Text(s, style: const TextStyle(fontSize: 12)),
-                              backgroundColor: Colors.orange.withValues(alpha: 0.1),
+                              backgroundColor: Colors.orange.withOpacity(0.1),
                             )),
                       ],
                     ),
@@ -231,6 +236,8 @@ class TailorScreen extends ConsumerWidget {
                       ref.read(tailorProvider.notifier).tailorResume(
                             jobId: job.id ?? job.externalId,
                             profileId: profileId,
+                            jobTitle: job.title,
+                            companyName: job.company,
                           );
                     },
               style: FilledButton.styleFrom(
@@ -256,7 +263,7 @@ class TailorScreen extends ConsumerWidget {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.red.withValues(alpha: 0.1),
+                  color: Colors.red.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
@@ -294,7 +301,7 @@ class TailorScreen extends ConsumerWidget {
                         Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            color: Colors.grey.withValues(alpha: 0.1),
+                            color: Colors.grey.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Column(
@@ -319,9 +326,9 @@ class TailorScreen extends ConsumerWidget {
                         Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            color: Colors.green.withValues(alpha: 0.08),
+                            color: Colors.green.withOpacity(0.08),
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
+                            border: Border.all(color: Colors.green.withOpacity(0.3)),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -374,10 +381,10 @@ class TailorScreen extends ConsumerWidget {
 
               // Referral DM Card
               Card(
-                color: theme.colorScheme.primaryContainer.withValues(alpha: 0.25),
+                color: theme.colorScheme.primaryContainer.withOpacity(0.25),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
-                  side: BorderSide(color: theme.colorScheme.primary.withValues(alpha: 0.3)),
+                  side: BorderSide(color: theme.colorScheme.primary.withOpacity(0.3)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -400,7 +407,7 @@ class TailorScreen extends ConsumerWidget {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                             decoration: BoxDecoration(
-                              color: theme.colorScheme.primary.withValues(alpha: 0.15),
+                              color: theme.colorScheme.primary.withOpacity(0.15),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(

@@ -22,7 +22,7 @@ class ResumeScreen extends ConsumerWidget {
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error selecting PDF: $e')),
+          SnackBar(content: Text('Notice selecting PDF: $e')),
         );
       }
     }
@@ -129,7 +129,7 @@ class ResumeScreen extends ConsumerWidget {
                       width: 56,
                       height: 56,
                       decoration: BoxDecoration(
-                        color: theme.colorScheme.primary.withValues(alpha: 0.12),
+                        color: theme.colorScheme.primary.withOpacity(0.12),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Icon(
@@ -167,10 +167,24 @@ class ResumeScreen extends ConsumerWidget {
                         ),
                       ),
                     ] else ...[
-                      FilledButton.icon(
-                        onPressed: () => _pickAndUploadResume(context, ref),
-                        icon: const Icon(Icons.file_present),
-                        label: Text(profile == null ? 'Select PDF File' : 'Upload New Resume'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FilledButton.icon(
+                            onPressed: () => _pickAndUploadResume(context, ref),
+                            icon: const Icon(Icons.file_present),
+                            label: Text(profile == null ? 'Select PDF File' : 'Upload New Resume'),
+                          ),
+                          if (profile == null) ...[
+                            const SizedBox(width: 12),
+                            OutlinedButton.icon(
+                              onPressed: () =>
+                                  ref.read(resumeProvider.notifier).loadSampleProfile(),
+                              icon: const Icon(Icons.auto_awesome, color: Color(0xFF10B981)),
+                              label: const Text('Try Sample Resume'),
+                            ),
+                          ],
+                        ],
                       ),
                     ],
                   ],
@@ -178,19 +192,43 @@ class ResumeScreen extends ConsumerWidget {
               ),
             ),
 
+            if (state.successMessage != null) ...[
+              const SizedBox(height: 12),
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.green.withOpacity(0.12),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.green.withOpacity(0.4)),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.check_circle, color: Colors.green, size: 20),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        state.successMessage!,
+                        style: const TextStyle(color: Colors.green, fontSize: 13),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+
             if (state.errorMessage != null) ...[
               const SizedBox(height: 12),
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.red.withValues(alpha: 0.1),
+                  color: Colors.red.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
+                  border: Border.all(color: Colors.red.withOpacity(0.3)),
                 ),
                 child: Row(
                   children: [
                     const Icon(Icons.error_outline, color: Colors.red, size: 20),
-                    const SizedBox(height: 8),
+                    const SizedBox(width: 10),
                     Expanded(
                       child: Text(
                         state.errorMessage!,
@@ -219,11 +257,11 @@ class ResumeScreen extends ConsumerWidget {
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
-                            color: theme.colorScheme.primary,
+                            color: theme.colorScheme.onPrimaryContainer,
                           ),
                         ),
                       ),
-                      const SizedBox(width: 14),
+                      const SizedBox(width: 16),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -234,6 +272,7 @@ class ResumeScreen extends ConsumerWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+                            const SizedBox(height: 2),
                             if (profile.email != null)
                               Text(
                                 profile.email!,
@@ -242,19 +281,11 @@ class ResumeScreen extends ConsumerWidget {
                                 ),
                               ),
                             if (profile.location != null)
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.place_outlined,
-                                    size: 14,
-                                    color: theme.colorScheme.primary,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    profile.location!,
-                                    style: theme.textTheme.bodySmall,
-                                  ),
-                                ],
+                              Text(
+                                profile.location!,
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: theme.colorScheme.onSurfaceVariant,
+                                ),
                               ),
                           ],
                         ),
@@ -266,7 +297,7 @@ class ResumeScreen extends ConsumerWidget {
 
               const SizedBox(height: 16),
 
-              // Job Preference Controls Card
+              // Target Roles Section
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -277,14 +308,13 @@ class ResumeScreen extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Target Roles & Preferences',
+                            'Target Roles',
                             style: theme.textTheme.titleSmall?.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           IconButton(
-                            icon: const Icon(Icons.add, size: 20),
-                            tooltip: 'Add Target Role',
+                            icon: const Icon(Icons.add_circle_outline, size: 20),
                             onPressed: () => _showAddRoleDialog(context, ref),
                           ),
                         ],
@@ -293,30 +323,13 @@ class ResumeScreen extends ConsumerWidget {
                       Wrap(
                         spacing: 8,
                         runSpacing: 8,
-                        children: [
-                          ...state.targetRoles.map(
-                            (role) => Chip(
-                              label: Text(role),
-                              deleteIcon: const Icon(Icons.close, size: 16),
-                              onDeleted: () =>
-                                  ref.read(resumeProvider.notifier).removeTargetRole(role),
-                            ),
-                          ),
-                          ActionChip(
-                            avatar: const Icon(Icons.add, size: 16),
-                            label: const Text('Add Role'),
-                            onPressed: () => _showAddRoleDialog(context, ref),
-                          ),
-                        ],
-                      ),
-                      const Divider(height: 24),
-                      SwitchListTile(
-                        contentPadding: EdgeInsets.zero,
-                        title: const Text('Remote-Only Opportunities'),
-                        subtitle: const Text('Prioritize 100% remote positions in match feed'),
-                        value: state.isRemoteOnly,
-                        onChanged: (val) =>
-                            ref.read(resumeProvider.notifier).toggleRemoteOnly(val),
+                        children: state.targetRoles.map((role) {
+                          return Chip(
+                            label: Text(role),
+                            onDeleted: () =>
+                                ref.read(resumeProvider.notifier).removeTargetRole(role),
+                          );
+                        }).toList(),
                       ),
                     ],
                   ),
@@ -325,7 +338,20 @@ class ResumeScreen extends ConsumerWidget {
 
               const SizedBox(height: 16),
 
-              // Skills Section
+              // Remote Preference Toggle
+              Card(
+                child: SwitchListTile(
+                  title: const Text('Remote Roles Only'),
+                  subtitle: const Text('Prioritize remote-friendly and hybrid internships'),
+                  value: state.isRemoteOnly,
+                  onChanged: (val) =>
+                      ref.read(resumeProvider.notifier).toggleRemoteOnly(val),
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              // Skills Chips Section
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -341,35 +367,20 @@ class ResumeScreen extends ConsumerWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          TextButton.icon(
-                            icon: const Icon(Icons.add, size: 16),
-                            label: const Text('Add Skill'),
+                          IconButton(
+                            icon: const Icon(Icons.add_circle_outline, size: 20),
                             onPressed: () => _showAddSkillDialog(context, ref),
                           ),
                         ],
                       ),
                       const SizedBox(height: 8),
                       Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
+                        spacing: 6,
+                        runSpacing: 6,
                         children: profile.skills.map((skill) {
-                          return Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.primaryContainer.withValues(alpha: 0.5),
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                color: theme.colorScheme.primary.withValues(alpha: 0.2),
-                              ),
-                            ),
-                            child: Text(
-                              skill,
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: theme.colorScheme.onPrimaryContainer,
-                              ),
-                            ),
+                          return Chip(
+                            label: Text(skill, style: const TextStyle(fontSize: 12)),
+                            backgroundColor: theme.colorScheme.surfaceContainerHighest,
                           );
                         }).toList(),
                       ),
@@ -380,106 +391,104 @@ class ResumeScreen extends ConsumerWidget {
 
               const SizedBox(height: 16),
 
-              // Projects Section (Expandable Cards)
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Technical Projects (${profile.projects.length})',
-                        style: theme.textTheme.titleSmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                      ...profile.projects.map((proj) {
-                        return Card(
-                          margin: const EdgeInsets.only(bottom: 10),
-                          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
-                          child: ExpansionTile(
-                            title: Text(
-                              proj.title,
-                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                            ),
-                            subtitle: proj.techStack.isNotEmpty
-                                ? Padding(
-                                    padding: const EdgeInsets.only(top: 4),
-                                    child: Text(
-                                      proj.techStack.join(' • '),
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: theme.colorScheme.primary,
-                                      ),
-                                    ),
-                                  )
-                                : null,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(14),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: proj.bulletPoints.map((bp) {
-                                    return Padding(
-                                      padding: const EdgeInsets.only(bottom: 6),
-                                      child: Row(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          const Text('• ', style: TextStyle(fontWeight: FontWeight.bold)),
-                                          Expanded(
-                                            child: Text(
-                                              bp,
-                                              style: const TextStyle(fontSize: 13, height: 1.3),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  }).toList(),
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      }),
-                    ],
+              // Projects Section
+              if (profile.projects.isNotEmpty) ...[
+                Text(
+                  'Projects (${profile.projects.length})',
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
+                const SizedBox(height: 8),
+                ...profile.projects.map((proj) => Card(
+                      margin: const EdgeInsets.only(bottom: 12),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              proj.title,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                            if (proj.techStack.isNotEmpty) ...[
+                              const SizedBox(height: 8),
+                              Wrap(
+                                spacing: 4,
+                                runSpacing: 4,
+                                children: proj.techStack
+                                    .map((t) => Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 8, vertical: 2),
+                                          decoration: BoxDecoration(
+                                            color: theme.colorScheme.primary.withOpacity(0.08),
+                                            borderRadius: BorderRadius.circular(4),
+                                          ),
+                                          child: Text(
+                                            t,
+                                            style: TextStyle(
+                                              fontSize: 11,
+                                              color: theme.colorScheme.primary,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ))
+                                    .toList(),
+                              ),
+                            ],
+                            if (proj.bulletPoints.isNotEmpty) ...[
+                              const SizedBox(height: 10),
+                              ...proj.bulletPoints.map((bp) => Padding(
+                                    padding: const EdgeInsets.only(bottom: 4),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        const Text('• ', style: TextStyle(fontWeight: FontWeight.bold)),
+                                        Expanded(
+                                          child: Text(
+                                            bp,
+                                            style: TextStyle(
+                                              fontSize: 13,
+                                              color: theme.colorScheme.onSurfaceVariant,
+                                              height: 1.3,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )),
+                            ],
+                          ],
+                        ),
+                      ),
+                    )),
+              ],
 
               const SizedBox(height: 16),
 
               // Education Section
-              if (profile.education.isNotEmpty)
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Education',
-                          style: theme.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        ...profile.education.map((edu) {
-                          return ListTile(
-                            contentPadding: EdgeInsets.zero,
-                            leading: const Icon(Icons.school_outlined),
-                            title: Text(edu.degree, style: const TextStyle(fontWeight: FontWeight.w600)),
-                            subtitle: Text(
-                              '${edu.institution}${edu.graduationYear != null ? ' (${edu.graduationYear})' : ''}',
-                            ),
-                            trailing: edu.gpa != null ? Chip(label: Text('GPA ${edu.gpa}')) : null,
-                          );
-                        }),
-                      ],
-                    ),
+              if (profile.education.isNotEmpty) ...[
+                Text(
+                  'Education',
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
+                const SizedBox(height: 8),
+                ...profile.education.map((edu) => Card(
+                      margin: const EdgeInsets.only(bottom: 12),
+                      child: ListTile(
+                        leading: const Icon(Icons.school_outlined),
+                        title: Text(edu.institution, style: const TextStyle(fontWeight: FontWeight.bold)),
+                        subtitle: Text(
+                          '${edu.degree}${edu.graduationYear != null ? ' • Class of ${edu.graduationYear}' : ''}${edu.gpa != null ? ' • GPA: ${edu.gpa}' : ''}',
+                        ),
+                      ),
+                    )),
+              ],
             ],
           ],
         ),

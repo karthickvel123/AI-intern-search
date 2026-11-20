@@ -62,8 +62,8 @@ jobs:
       - name: Create or Update GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: "InternPulse v1.0.0 (Release APK)"
-          tag_name: "v1.0.0"
+          name: "InternPulse ${{ github.ref_name || 'v1.0.1' }} (Release APK)"
+          tag_name: "${{ github.ref_name || 'v1.0.1' }}"
           files: app/build/app/outputs/flutter-apk/app-release.apk
           generate_release_notes: true
         env:

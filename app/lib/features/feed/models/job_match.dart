@@ -16,13 +16,13 @@ class JobMatchItem {
 
   const JobMatchItem({
     this.id,
-    required this.externalId,
+    this.externalId = '',
     required this.title,
     required this.company,
     this.location,
     this.isRemote = false,
     this.applyUrl,
-    required this.source,
+    this.source = 'ATS',
     required this.matchScore,
     this.matchedSkills = const [],
     this.missingSkills = const [],
@@ -50,11 +50,28 @@ class JobMatchItem {
               ?.map((e) => e.toString())
               .toList() ??
           const [],
-      postedHoursAgo: (json['posted_hours_ago'] as num?)?.toDouble(),
+      postedHoursAgo: (json['posted_hours_ago'] as num?)?.toDouble() ?? 1.0,
       ghostJobFlag: json['ghost_job_flag'] as bool? ?? false,
       matchReason: json['match_reason'] as String? ?? '',
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        if (id != null) 'id': id,
+        'external_id': externalId,
+        'title': title,
+        'company': company,
+        if (location != null) 'location': location,
+        'is_remote': isRemote,
+        if (applyUrl != null) 'apply_url': applyUrl,
+        'source': source,
+        'match_score': matchScore,
+        'matched_skills': matchedSkills,
+        'missing_skills': missingSkills,
+        if (postedHoursAgo != null) 'posted_hours_ago': postedHoursAgo,
+        'ghost_job_flag': ghostJobFlag,
+        'match_reason': matchReason,
+      };
 }
 
 class JobMatchResponse {
@@ -65,17 +82,23 @@ class JobMatchResponse {
   const JobMatchResponse({
     required this.profileId,
     required this.totalMatches,
-    this.matches = const [],
+    required this.matches,
   });
 
   factory JobMatchResponse.fromJson(Map<String, dynamic> json) {
     return JobMatchResponse(
       profileId: json['profile_id'] as String? ?? '',
-      totalMatches: json['total_matches'] as int? ?? 0,
+      totalMatches: (json['total_matches'] as num?)?.toInt() ?? 0,
       matches: (json['matches'] as List<dynamic>?)
               ?.map((e) => JobMatchItem.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'profile_id': profileId,
+        'total_matches': totalMatches,
+        'matches': matches.map((m) => m.toJson()).toList(),
+      };
 }

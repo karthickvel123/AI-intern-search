@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/auth_provider.dart';
+import '../../features/auth/auth_screen.dart';
+import '../../features/auth/onboarding_resume_screen.dart';
 import '../../features/feed/feed_screen.dart';
 import '../../features/feed/models/job_match.dart';
 import '../../features/resume/resume_screen.dart';
@@ -15,13 +18,36 @@ final _resumeNavigatorKey = GlobalKey<NavigatorState>();
 final _trackerNavigatorKey = GlobalKey<NavigatorState>();
 final _alertsNavigatorKey = GlobalKey<NavigatorState>();
 
-/// GoRouter configuration with StatefulShellRoute for 4-tab bottom navigation
-/// and deep routes for Job Detail & AI Tailor
+/// GoRouter configuration with Auth, Onboarding, and 4-tab bottom navigation
 final appRouterProvider = Provider<GoRouter>((ref) {
+  final authState = ref.watch(authProvider);
+
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
-    initialLocation: '/feed',
+    initialLocation: '/auth',
+    redirect: (context, state) {
+      final isAuth = authState.isAuthenticated;
+      final isGoingToAuth = state.matchedLocation == '/auth';
+
+      if (!isAuth && !isGoingToAuth) {
+        return '/auth';
+      }
+
+      if (isAuth && isGoingToAuth) {
+        return '/feed';
+      }
+
+      return null;
+    },
     routes: [
+      GoRoute(
+        path: '/auth',
+        builder: (context, state) => const AuthScreen(),
+      ),
+      GoRoute(
+        path: '/onboarding/resume',
+        builder: (context, state) => const OnboardingResumeScreen(),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return ScaffoldWithNestedNavigation(navigationShell: navigationShell);
