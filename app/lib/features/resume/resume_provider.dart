@@ -108,7 +108,8 @@ class ResumeNotifier extends StateNotifier<ResumeState> {
         ExperienceItem(
           company: 'TechFlow Labs',
           role: 'Software Engineering Intern',
-          duration: 'June 2024 - Sept 2024',
+          startDate: 'June 2024',
+          endDate: 'Sept 2024',
           bulletPoints: [
             'Optimized PostgreSQL query latency by 42% through compound B-tree indexing and query plan refactoring.',
             'Developed RESTful microservices in FastAPI serving 1M+ daily active mobile sessions.',

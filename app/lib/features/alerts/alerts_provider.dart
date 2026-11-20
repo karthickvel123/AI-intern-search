@@ -20,6 +20,8 @@ class AlertsState {
     ],
   });
 
+  List<String> get monitoredCompanySlugs => targetCompanySlugs;
+
   AlertsState copyWith({
     bool? pushNotificationsEnabled,
     double? minMatchScore,
@@ -45,6 +47,8 @@ class AlertsNotifier extends StateNotifier<AlertsState> {
       await FCMService.instance.unsubscribeFromJobAlertsTopic();
     }
   }
+
+  Future<void> togglePush(bool enabled) => togglePushNotifications(enabled);
 
   void setMinMatchScore(double score) {
     state = state.copyWith(minMatchScore: score);

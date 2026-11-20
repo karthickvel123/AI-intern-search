@@ -323,7 +323,7 @@ class AlertsScreen extends ConsumerWidget {
                       ),
                       value: state.pushNotificationsEnabled,
                       onChanged: (val) =>
-                          ref.read(alertsProvider.notifier).togglePush(val),
+                          ref.read(alertsProvider.notifier).togglePushNotifications(val),
                     ),
                     if (state.pushNotificationsEnabled) ...[
                       const Divider(),
@@ -395,10 +395,10 @@ class AlertsScreen extends ConsumerWidget {
                       min: 70,
                       max: 95,
                       divisions: 5,
-                      label: '${state.minMatchScore}%',
+                      label: '${state.minMatchScore.round()}%',
                       onChanged: (val) => ref
                           .read(alertsProvider.notifier)
-                          .setMinMatchScore(val.toInt()),
+                          .setMinMatchScore(val),
                     ),
                   ],
                 ),

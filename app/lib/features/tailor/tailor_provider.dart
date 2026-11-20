@@ -74,14 +74,17 @@ class TailorNotifier extends StateNotifier<TailorState> {
     String original1 = 'Built full-stack application handling client requests and data synchronization.';
     String original2 = 'Engineered automated tests and implemented CI/CD pipeline.';
 
-    if (_profile != null && _profile.projects.isNotEmpty) {
-      final p = _profile.projects.first;
+    final profile = _profile;
+    if (profile != null && profile.projects.isNotEmpty) {
+      final p = profile.projects.first;
       projectName = p.title;
       if (p.bulletPoints.isNotEmpty) original1 = p.bulletPoints.first;
       if (p.bulletPoints.length > 1) original2 = p.bulletPoints[1];
     }
 
     final tailoredResponse = TailorResumeResponse(
+      jobId: jobId,
+      profileId: profileId,
       bulletDiffs: [
         BulletDiff(
           originalBullet: original1,

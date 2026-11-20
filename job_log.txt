@@ -1,0 +1,627 @@
+﻿2026-11-20T15:28:27.5010646Z Current runner version: '2.338.2'
+2026-11-20T15:28:27.5027787Z ##[group]Runner Image Provisioner
+2026-11-20T15:28:27.5028652Z Hosted Compute Agent
+2026-11-20T15:28:27.5029083Z Version: 20261111.635
+2026-11-20T15:28:27.5029538Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-20T15:28:27.5030094Z Build Date: 2026-11-11T01:49:01Z
+2026-11-20T15:28:27.5030611Z Worker ID: {852c8a13-bace-400f-8e5c-2cd8cb2e777f}
+2026-11-20T15:28:27.5031138Z Region: us-east-1
+2026-11-20T15:28:27.5031568Z Cloud: AWS
+2026-11-20T15:28:27.5031939Z ##[endgroup]
+2026-11-20T15:28:27.5032882Z ##[group]Operating System
+2026-11-20T15:28:27.5033368Z Ubuntu
+2026-11-20T15:28:27.5034255Z 26.04.1
+2026-11-20T15:28:27.5034633Z LTS
+2026-11-20T15:28:27.5034987Z ##[endgroup]
+2026-11-20T15:28:27.5035435Z ##[group]Runner Image
+2026-11-20T15:28:27.5035857Z Image: ubuntu-26.04
+2026-11-20T15:28:27.5036269Z Version: 20261116.88.1
+2026-11-20T15:28:27.5037176Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.88/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-20T15:28:27.5038370Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.88
+2026-11-20T15:28:27.5039045Z ##[endgroup]
+2026-11-20T15:28:27.5039921Z ##[group]GITHUB_TOKEN Permissions
+2026-11-20T15:28:27.5041662Z Contents: write
+2026-11-20T15:28:27.5042099Z Metadata: read
+2026-11-20T15:28:27.5042514Z ##[endgroup]
+2026-11-20T15:28:27.5044327Z Secret source: Actions
+2026-11-20T15:28:27.5045006Z Cache mode: write
+2026-11-20T15:28:27.5045671Z Prepare workflow directory
+2026-11-20T15:28:27.5272241Z Prepare all required actions
+2026-11-20T15:28:27.5308551Z Getting action download info
+2026-11-20T15:28:27.6728186Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-20T15:28:29.3310710Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+2026-11-20T15:28:29.5085877Z Download action repository 'subosito/flutter-action@v2' (SHA:1a449444c387b1966244ae4d4f8c696479add0b2)
+2026-11-20T15:28:29.6092157Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-20T15:28:29.7121724Z Download action repository 'softprops/action-gh-release@v2' (SHA:3bb12739c298aeb8a4eeaf626c5b8d85266b0e65)
+2026-11-20T15:28:29.9737371Z Getting action download info
+2026-11-20T15:28:30.0429917Z Download action repository 'actions/cache@v5' (SHA:caa296126883cff596d87d8935842f9db880ef25)
+2026-11-20T15:28:30.2135707Z Complete job name: Build Android Release APK
+2026-11-20T15:28:30.2851468Z ##[group]Run actions/checkout@v4
+2026-11-20T15:28:30.2852398Z with:
+2026-11-20T15:28:30.2853105Z   repository: karthickvel123/AI-intern-search
+2026-11-20T15:28:30.2858475Z   token: ***
+2026-11-20T15:28:30.2859098Z   ssh-strict: true
+2026-11-20T15:28:30.2859748Z   ssh-user: git
+2026-11-20T15:28:30.2860405Z   persist-credentials: true
+2026-11-20T15:28:30.2861108Z   clean: true
+2026-11-20T15:28:30.2861931Z   sparse-checkout-cone-mode: true
+2026-11-20T15:28:30.2862689Z   fetch-depth: 1
+2026-11-20T15:28:30.2863325Z   fetch-tags: false
+2026-11-20T15:28:30.2864303Z   show-progress: true
+2026-11-20T15:28:30.2864970Z   lfs: false
+2026-11-20T15:28:30.2865599Z   submodules: false
+2026-11-20T15:28:30.2866258Z   set-safe-directory: true
+2026-11-20T15:28:30.2867006Z   allow-unsafe-pr-checkout: false
+2026-11-20T15:28:30.2867958Z ##[endgroup]
+2026-11-20T15:28:34.4695624Z Syncing repository: karthickvel123/AI-intern-search
+2026-11-20T15:28:34.4696994Z ##[group]Getting Git version info
+2026-11-20T15:28:34.4697711Z Working directory is '/home/runner/work/AI-intern-search/AI-intern-search'
+2026-11-20T15:28:34.4698351Z [command]/usr/bin/git version
+2026-11-20T15:28:34.4699697Z git version 2.56.1
+2026-11-20T15:28:34.4712075Z ##[endgroup]
+2026-11-20T15:28:34.4720959Z Temporarily overriding HOME='/home/runner/work/_temp/01aff670-2e51-43c1-a2a2-a72a23bc00b8' before making global git config changes
+2026-11-20T15:28:34.4721998Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-20T15:28:34.4724974Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AI-intern-search/AI-intern-search
+2026-11-20T15:28:34.5217429Z Deleting the contents of '/home/runner/work/AI-intern-search/AI-intern-search'
+2026-11-20T15:28:34.5220273Z ##[group]Initializing the repository
+2026-11-20T15:28:34.5223121Z [command]/usr/bin/git init /home/runner/work/AI-intern-search/AI-intern-search
+2026-11-20T15:28:34.6122264Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-20T15:28:34.6123112Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-20T15:28:34.6123857Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-20T15:28:34.6124304Z hint: call:
+2026-11-20T15:28:34.6124561Z hint:
+2026-11-20T15:28:34.6124911Z hint: 	git config --global init.defaultBranch <name>
+2026-11-20T15:28:34.6125254Z hint:
+2026-11-20T15:28:34.6125585Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-20T15:28:34.6126059Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-20T15:28:34.6126450Z hint:
+2026-11-20T15:28:34.6126734Z hint: 	git branch -m <name>
+2026-11-20T15:28:34.6127048Z hint:
+2026-11-20T15:28:34.6127395Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-20T15:28:34.6165436Z Initialized empty Git repository in /home/runner/work/AI-intern-search/AI-intern-search/.git/
+2026-11-20T15:28:34.6171808Z [command]/usr/bin/git remote add origin https://github.com/karthickvel123/AI-intern-search
+2026-11-20T15:28:34.6249303Z ##[endgroup]
+2026-11-20T15:28:34.6249813Z ##[group]Disabling automatic garbage collection
+2026-11-20T15:28:34.6251707Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-20T15:28:34.6272387Z ##[endgroup]
+2026-11-20T15:28:34.6272922Z ##[group]Setting up auth
+2026-11-20T15:28:34.6277021Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T15:28:34.6300366Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-20T15:28:35.0195739Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T15:28:35.0217070Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-20T15:28:35.0390934Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T15:28:35.0413380Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-20T15:28:35.0582297Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-20T15:28:35.0606276Z ##[endgroup]
+2026-11-20T15:28:35.0606847Z ##[group]Fetching the repository
+2026-11-20T15:28:35.0614472Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +765e1ec2af93a3f3863e7b8da6bb97a24df38a1c:refs/tags/v1.0.1
+2026-11-20T15:28:35.5266686Z From https://github.com/karthickvel123/AI-intern-search
+2026-11-20T15:28:35.5267339Z  * [new ref]         765e1ec2af93a3f3863e7b8da6bb97a24df38a1c -> v1.0.1
+2026-11-20T15:28:35.5269193Z ##[endgroup]
+2026-11-20T15:28:35.5269810Z ##[group]Determining the checkout info
+2026-11-20T15:28:35.5271074Z ##[endgroup]
+2026-11-20T15:28:35.5274431Z [command]/usr/bin/git sparse-checkout disable
+2026-11-20T15:28:35.5335412Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-20T15:28:35.5352594Z ##[group]Checking out the ref
+2026-11-20T15:28:35.5355754Z [command]/usr/bin/git checkout --progress --force refs/tags/v1.0.1
+2026-11-20T15:28:35.5488956Z Note: switching to 'refs/tags/v1.0.1'.
+2026-11-20T15:28:35.5489486Z 
+2026-11-20T15:28:35.5489669Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-20T15:28:35.5490162Z changes and commit them, and you can discard any commits you make in this
+2026-11-20T15:28:35.5490549Z state without impacting any branches by switching back to a branch.
+2026-11-20T15:28:35.5490769Z 
+2026-11-20T15:28:35.5490936Z If you want to create a new branch to retain commits you create, you may
+2026-11-20T15:28:35.5491357Z do so (now or later) by using -c with the switch command. Example:
+2026-11-20T15:28:35.5491581Z 
+2026-11-20T15:28:35.5491699Z   git switch -c <new-branch-name>
+2026-11-20T15:28:35.5491854Z 
+2026-11-20T15:28:35.5491980Z Or undo this operation with:
+2026-11-20T15:28:35.5492128Z 
+2026-11-20T15:28:35.5492243Z   git switch -
+2026-11-20T15:28:35.5492367Z 
+2026-11-20T15:28:35.5492551Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-20T15:28:35.5492810Z 
+2026-11-20T15:28:35.5492996Z HEAD is now at 765e1ec ci: echo tail of build log on error and upload build artifact
+2026-11-20T15:28:35.5504349Z ##[endgroup]
+2026-11-20T15:28:35.5552741Z [command]/usr/bin/git log -1 --format=%H
+2026-11-20T15:28:35.5568858Z 765e1ec2af93a3f3863e7b8da6bb97a24df38a1c
+2026-11-20T15:28:35.5783507Z ##[group]Run actions/setup-java@v4
+2026-11-20T15:28:35.5784150Z with:
+2026-11-20T15:28:35.5784388Z   distribution: temurin
+2026-11-20T15:28:35.5784647Z   java-version: 17
+2026-11-20T15:28:35.5784893Z   java-package: jdk
+2026-11-20T15:28:35.5785114Z   check-latest: false
+2026-11-20T15:28:35.5785345Z   server-id: github
+2026-11-20T15:28:35.5785575Z   server-username: GITHUB_ACTOR
+2026-11-20T15:28:35.5785821Z   server-password: GITHUB_TOKEN
+2026-11-20T15:28:35.5786096Z   overwrite-settings: true
+2026-11-20T15:28:35.5786427Z   job-status: success
+2026-11-20T15:28:35.5788226Z   token: ***
+2026-11-20T15:28:35.5788450Z ##[endgroup]
+2026-11-20T15:28:35.7449018Z ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+2026-11-20T15:28:35.7454114Z ##[group]Installed distributions
+2026-11-20T15:28:35.7506458Z Resolved Java 17.0.21+9 from tool-cache
+2026-11-20T15:28:35.7506871Z Setting Java 17.0.21+9 as the default
+2026-11-20T15:28:35.7512164Z (node:2364) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T15:28:35.7514997Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T15:28:35.7515490Z Creating toolchains.xml for JDK version 17 from temurin
+2026-11-20T15:28:35.7562295Z Writing to /home/runner/.m2/toolchains.xml
+2026-11-20T15:28:35.7562550Z 
+2026-11-20T15:28:35.7562695Z Java configuration:
+2026-11-20T15:28:35.7563055Z   Distribution: temurin
+2026-11-20T15:28:35.7563358Z   Version: 17.0.21+9
+2026-11-20T15:28:35.7563887Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:35.7564256Z 
+2026-11-20T15:28:35.7564642Z ##[endgroup]
+2026-11-20T15:28:35.7576386Z Creating settings.xml with server-id: github
+2026-11-20T15:28:35.7598256Z Writing to /home/runner/.m2/settings.xml
+2026-11-20T15:28:35.7848416Z ##[group]Run subosito/flutter-action@v2
+2026-11-20T15:28:35.7848805Z with:
+2026-11-20T15:28:35.7849113Z   flutter-version: 3.29.0
+2026-11-20T15:28:35.7849424Z   channel: stable
+2026-11-20T15:28:35.7849657Z   cache: true
+2026-11-20T15:28:35.7849896Z   architecture: X64
+2026-11-20T15:28:35.7850197Z   pub-cache-path: default
+2026-11-20T15:28:35.7850465Z   dry-run: false
+2026-11-20T15:28:35.7850756Z   git-source: https://github.com/flutter/flutter.git
+2026-11-20T15:28:35.7851094Z env:
+2026-11-20T15:28:35.7851473Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:35.7851889Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:35.7852232Z ##[endgroup]
+2026-11-20T15:28:35.7909160Z ##[start-action display=Make yq tool available on Windows runners;id=__subosito_flutter-action.__run]
+2026-11-20T15:28:35.7917934Z ##[end-action id=__subosito_flutter-action.__run;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T15:28:35.7919882Z ##[start-action display=Make setup script executable;id=__subosito_flutter-action.__run_2]
+2026-11-20T15:28:35.7949374Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2026-11-20T15:28:35.7949814Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2026-11-20T15:28:35.7973870Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T15:28:35.7974200Z env:
+2026-11-20T15:28:35.7974539Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:35.7974980Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:35.7975314Z ##[endgroup]
+2026-11-20T15:28:35.8058122Z ##[end-action id=__subosito_flutter-action.__run_2;outcome=success;conclusion=success;duration_ms=13]
+2026-11-20T15:28:35.8060312Z ##[start-action display=Set action inputs;id=__subosito_flutter-action.flutter-action]
+2026-11-20T15:28:35.8089500Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh -p \
+2026-11-20T15:28:35.8089880Z [36;1m$GITHUB_ACTION_PATH/setup.sh -p \[0m
+2026-11-20T15:28:35.8090151Z [36;1m  -n '3.29.0' \[0m
+2026-11-20T15:28:35.8090415Z [36;1m  -f '' \[0m
+2026-11-20T15:28:35.8090627Z [36;1m  -a 'X64' \[0m
+2026-11-20T15:28:35.8090844Z [36;1m  -k '' \[0m
+2026-11-20T15:28:35.8091068Z [36;1m  -c '' \[0m
+2026-11-20T15:28:35.8091316Z [36;1m  -l '' \[0m
+2026-11-20T15:28:35.8091595Z [36;1m  -d 'default' \[0m
+2026-11-20T15:28:35.8091888Z [36;1m  -g 'https://github.com/flutter/flutter.git' \[0m
+2026-11-20T15:28:35.8092210Z [36;1m  stable[0m
+2026-11-20T15:28:35.8109129Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T15:28:35.8109528Z env:
+2026-11-20T15:28:35.8109828Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:35.8110244Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:35.8110575Z ##[endgroup]
+2026-11-20T15:28:35.9148575Z ##[end-action id=__subosito_flutter-action.flutter-action;outcome=success;conclusion=success;duration_ms=108]
+2026-11-20T15:28:35.9152531Z ##[start-action display=Cache Flutter;id=__subosito_flutter-action.cache-flutter]
+2026-11-20T15:28:35.9191310Z ##[group]Run actions/cache@v5
+2026-11-20T15:28:35.9191586Z with:
+2026-11-20T15:28:35.9191858Z   path: /opt/hostedtoolcache/flutter/stable-3.29.0-x64
+2026-11-20T15:28:35.9192287Z   key: flutter-linux-stable-3.29.0-x64-35c388afb57ef061d06a39b537336c87e0e3d1b1
+2026-11-20T15:28:35.9192654Z   enableCrossOsArchive: false
+2026-11-20T15:28:35.9192900Z   fail-on-cache-miss: false
+2026-11-20T15:28:35.9193158Z   lookup-only: false
+2026-11-20T15:28:35.9193411Z   save-always: false
+2026-11-20T15:28:35.9193828Z env:
+2026-11-20T15:28:35.9194164Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:35.9194559Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:35.9194930Z ##[endgroup]
+2026-11-20T15:28:36.1184876Z Cache hit for: flutter-linux-stable-3.29.0-x64-35c388afb57ef061d06a39b537336c87e0e3d1b1
+2026-11-20T15:28:37.2199423Z Received 180355072 of 906530119 (19.9%), 172.0 MBs/sec
+2026-11-20T15:28:38.2225585Z Received 469762048 of 906530119 (51.8%), 223.9 MBs/sec
+2026-11-20T15:28:39.2211945Z Received 700448768 of 906530119 (77.3%), 222.6 MBs/sec
+2026-11-20T15:28:39.8988377Z Received 906530119 of 906530119 (100.0%), 235.0 MBs/sec
+2026-11-20T15:28:39.8989489Z Cache Size: ~865 MB (906530119 B)
+2026-11-20T15:28:39.9039586Z [command]/usr/bin/tar -xf /home/runner/work/_temp/6460d82a-8855-4921-ba37-cf24e6234847/cache.tzst -P -C /home/runner/work/AI-intern-search/AI-intern-search --use-compress-program unzstd
+2026-11-20T15:28:41.7253405Z Cache restored successfully
+2026-11-20T15:28:42.0935156Z Cache restored from key: flutter-linux-stable-3.29.0-x64-35c388afb57ef061d06a39b537336c87e0e3d1b1
+2026-11-20T15:28:42.1063092Z ##[end-action id=__subosito_flutter-action.cache-flutter;outcome=success;conclusion=success;duration_ms=6190]
+2026-11-20T15:28:42.1066341Z ##[start-action display=Cache pub dependencies;id=__subosito_flutter-action.cache-pub]
+2026-11-20T15:28:42.1688257Z ##[group]Run actions/cache@v5
+2026-11-20T15:28:42.1688519Z with:
+2026-11-20T15:28:42.1688777Z   path: /home/runner/.pub-cache
+2026-11-20T15:28:42.1689181Z   key: flutter-pub-linux-stable-3.29.0-x64-35c388afb57ef061d06a39b537336c87e0e3d1b1-
+2026-11-20T15:28:42.1689578Z   enableCrossOsArchive: false
+2026-11-20T15:28:42.1689891Z   fail-on-cache-miss: false
+2026-11-20T15:28:42.1690141Z   lookup-only: false
+2026-11-20T15:28:42.1690422Z   save-always: false
+2026-11-20T15:28:42.1690641Z env:
+2026-11-20T15:28:42.1690935Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:42.1691361Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:42.1691732Z ##[endgroup]
+2026-11-20T15:28:42.3243281Z Cache hit for: flutter-pub-linux-stable-3.29.0-x64-35c388afb57ef061d06a39b537336c87e0e3d1b1-
+2026-11-20T15:28:42.9015582Z Received 65198048 of 65198048 (100.0%), 118.7 MBs/sec
+2026-11-20T15:28:42.9016228Z Cache Size: ~62 MB (65198048 B)
+2026-11-20T15:28:42.9040387Z [command]/usr/bin/tar -xf /home/runner/work/_temp/0e31786c-8d8d-4681-a590-b3d092b346fd/cache.tzst -P -C /home/runner/work/AI-intern-search/AI-intern-search --use-compress-program unzstd
+2026-11-20T15:28:43.2808262Z Cache restored successfully
+2026-11-20T15:28:43.2886474Z Cache restored from key: flutter-pub-linux-stable-3.29.0-x64-35c388afb57ef061d06a39b537336c87e0e3d1b1-
+2026-11-20T15:28:43.2961332Z ##[end-action id=__subosito_flutter-action.cache-pub;outcome=success;conclusion=success;duration_ms=1189]
+2026-11-20T15:28:43.2964559Z ##[start-action display=Run setup script;id=__subosito_flutter-action.__run_3]
+2026-11-20T15:28:43.3033863Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2026-11-20T15:28:43.3034236Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2026-11-20T15:28:43.3034537Z [36;1m  -n '3.29.0' \[0m
+2026-11-20T15:28:43.3034831Z [36;1m  -a 'x64' \[0m
+2026-11-20T15:28:43.3035205Z [36;1m  -c '/opt/hostedtoolcache/flutter/stable-3.29.0-x64' \[0m
+2026-11-20T15:28:43.3035633Z [36;1m  -d '/home/runner/.pub-cache' \[0m
+2026-11-20T15:28:43.3035909Z [36;1m  stable[0m
+2026-11-20T15:28:43.3054783Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T15:28:43.3055104Z env:
+2026-11-20T15:28:43.3055517Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:43.3055963Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:43.3056383Z ##[endgroup]
+2026-11-20T15:28:43.3996347Z ##[end-action id=__subosito_flutter-action.__run_3;outcome=success;conclusion=success;duration_ms=103]
+2026-11-20T15:28:43.4144952Z ##[group]Run flutter --version
+2026-11-20T15:28:43.4145388Z [36;1mflutter --version[0m
+2026-11-20T15:28:43.4145644Z [36;1mjava -version[0m
+2026-11-20T15:28:43.4162046Z shell: /usr/bin/bash -e {0}
+2026-11-20T15:28:43.4162398Z env:
+2026-11-20T15:28:43.4162744Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:43.4163199Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:43.4163824Z   FLUTTER_ROOT: /opt/hostedtoolcache/flutter/stable-3.29.0-x64/flutter
+2026-11-20T15:28:43.4164257Z   PUB_CACHE: /home/runner/.pub-cache
+2026-11-20T15:28:43.4164540Z ##[endgroup]
+2026-11-20T15:28:44.7545283Z Flutter 3.29.0 • channel stable • https://github.com/flutter/flutter.git
+2026-11-20T15:28:44.7546321Z Framework • revision 35c388afb5 (1 year, 9 months ago) • 2025-02-10 12:48:41 -0800
+2026-11-20T15:28:44.7546989Z Engine • revision f73bfc4522
+2026-11-20T15:28:44.7547449Z Tools • Dart 3.7.0 • DevTools 2.42.2
+2026-11-20T15:28:46.8506598Z openjdk version "17.0.21" 2026-10-20
+2026-11-20T15:28:46.8507111Z OpenJDK Runtime Environment Temurin-17.0.21+9 (build 17.0.21+9)
+2026-11-20T15:28:46.8507722Z OpenJDK 64-Bit Server VM Temurin-17.0.21+9 (build 17.0.21+9, mixed mode, sharing)
+2026-11-20T15:28:46.8625427Z ##[group]Run flutter pub get
+2026-11-20T15:28:46.8625790Z [36;1mflutter pub get[0m
+2026-11-20T15:28:46.8643747Z shell: /usr/bin/bash -e {0}
+2026-11-20T15:28:46.8644191Z env:
+2026-11-20T15:28:46.8644542Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:46.8645014Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:46.8645451Z   FLUTTER_ROOT: /opt/hostedtoolcache/flutter/stable-3.29.0-x64/flutter
+2026-11-20T15:28:46.8645810Z   PUB_CACHE: /home/runner/.pub-cache
+2026-11-20T15:28:46.8646108Z ##[endgroup]
+2026-11-20T15:28:46.9562206Z 
+2026-11-20T15:28:46.9574256Z   ╔════════════════════════════════════════════════════════════════════════════╗
+2026-11-20T15:28:46.9575322Z   ║                 Welcome to Flutter! - https://flutter.dev                  ║
+2026-11-20T15:28:46.9575989Z   ║                                                                            ║
+2026-11-20T15:28:46.9576920Z   ║ The Flutter tool uses Google Analytics to anonymously report feature usage ║
+2026-11-20T15:28:46.9577745Z   ║ statistics and basic crash reports. This data is used to help improve      ║
+2026-11-20T15:28:46.9578468Z   ║ Flutter tools over time.                                                   ║
+2026-11-20T15:28:46.9579399Z   ║                                                                            ║
+2026-11-20T15:28:46.9580189Z   ║ Flutter tool analytics are not sent on the very first run. To disable      ║
+2026-11-20T15:28:46.9581057Z   ║ reporting, type 'flutter config --no-analytics'. To display the current    ║
+2026-11-20T15:28:46.9581681Z   ║ setting, type 'flutter config'. If you opt out of analytics, an opt-out    ║
+2026-11-20T15:28:46.9582282Z   ║ event will be sent, and then no further information will be sent by the    ║
+2026-11-20T15:28:46.9582931Z   ║ Flutter tool.                                                              ║
+2026-11-20T15:28:46.9583303Z   ║                                                                            ║
+2026-11-20T15:28:46.9583967Z   ║ By downloading the Flutter SDK, you agree to the Google Terms of Service.  ║
+2026-11-20T15:28:46.9584650Z   ║ The Google Privacy Policy describes how data is handled in this service.   ║
+2026-11-20T15:28:46.9585316Z   ║                                                                            ║
+2026-11-20T15:28:46.9585889Z   ║ Moreover, Flutter includes the Dart SDK, which may send usage metrics and  ║
+2026-11-20T15:28:46.9586508Z   ║ crash reports to Google.                                                   ║
+2026-11-20T15:28:46.9586969Z   ║                                                                            ║
+2026-11-20T15:28:46.9587349Z   ║ Read about data we send with crash reports:                                ║
+2026-11-20T15:28:46.9587864Z   ║ https://flutter.dev/to/crash-reporting                                     ║
+2026-11-20T15:28:46.9588274Z   ║                                                                            ║
+2026-11-20T15:28:46.9588708Z   ║ See Google's privacy policy:                                               ║
+2026-11-20T15:28:46.9589141Z   ║ https://policies.google.com/privacy                                        ║
+2026-11-20T15:28:46.9589528Z   ║                                                                            ║
+2026-11-20T15:28:46.9589962Z   ║ To disable animations in this tool, use                                    ║
+2026-11-20T15:28:46.9590399Z   ║ 'flutter config --no-cli-animations'.                                      ║
+2026-11-20T15:28:46.9590877Z   ╚════════════════════════════════════════════════════════════════════════════╝
+2026-11-20T15:28:46.9591072Z 
+2026-11-20T15:28:47.1271679Z Resolving dependencies...
+2026-11-20T15:28:48.1377980Z Downloading packages...
+2026-11-20T15:28:48.1518521Z + _fe_analyzer_shared 85.0.0 (111.0.0 available)
+2026-11-20T15:28:48.1519268Z + analyzer 7.7.1 (14.7.0 available)
+2026-11-20T15:28:48.1523363Z + archive 4.7.1
+2026-11-20T15:28:48.1524754Z + args 2.7.0
+2026-11-20T15:28:48.1525261Z + async 2.12.0 (2.13.1 available)
+2026-11-20T15:28:48.1525748Z + boolean_selector 2.1.2
+2026-11-20T15:28:48.1526204Z + build 2.5.4 (5.0.0 available)
+2026-11-20T15:28:48.1527227Z + build_config 1.1.2 (1.4.0 available)
+2026-11-20T15:28:48.1527650Z + build_daemon 4.1.1 (4.1.7 available)
+2026-11-20T15:28:48.1528116Z + build_resolvers 2.5.4 (3.0.4 available)
+2026-11-20T15:28:48.1528473Z + build_runner 2.5.4 (2.17.1 available)
+2026-11-20T15:28:48.1528829Z + build_runner_core 9.1.2 (9.3.2 available)
+2026-11-20T15:28:48.1529189Z + built_collection 5.1.1 (6.0.0 available)
+2026-11-20T15:28:48.1529543Z + built_value 8.13.0
+2026-11-20T15:28:48.1529832Z + characters 1.4.0 (1.4.1 available)
+2026-11-20T15:28:48.1530157Z + checked_yaml 2.0.3 (2.0.4 available)
+2026-11-20T15:28:48.1530519Z + cli_util 0.4.2 (0.6.0 available)
+2026-11-20T15:28:48.1530953Z + clock 1.1.2 (1.1.3 available)
+2026-11-20T15:28:48.1531482Z + code_builder 4.11.1 (4.13.0 available)
+2026-11-20T15:28:48.1532025Z + collection 1.19.1
+2026-11-20T15:28:48.1532387Z + convert 3.1.2
+2026-11-20T15:28:48.1532872Z + cross_file 0.3.5 (0.4.0 available)
+2026-11-20T15:28:48.1533294Z + crypto 3.0.8
+2026-11-20T15:28:48.1533989Z + dart_style 3.1.1 (3.1.14 available)
+2026-11-20T15:28:48.1534321Z + dio 5.11.1
+2026-11-20T15:28:48.1534623Z + dio_web_adapter 2.2.2
+2026-11-20T15:28:48.1535003Z + fake_async 1.3.2 (1.3.3 available)
+2026-11-20T15:28:48.1535313Z + ffi 2.2.0
+2026-11-20T15:28:48.1535579Z + file 7.0.1
+2026-11-20T15:28:48.1535868Z + file_picker 8.3.7 (13.4.0 available)
+2026-11-20T15:28:48.1536248Z + fixnum 1.1.1
+2026-11-20T15:28:48.1536579Z + flutter 0.0.0 from sdk flutter
+2026-11-20T15:28:48.1536925Z + flutter_launcher_icons 0.14.4
+2026-11-20T15:28:48.1537235Z + flutter_lints 5.0.0 (6.0.0 available)
+2026-11-20T15:28:48.1537687Z + flutter_plugin_android_lifecycle 2.0.31 (2.0.35 available)
+2026-11-20T15:28:48.1538107Z + flutter_riverpod 2.6.1 (3.5.0 available)
+2026-11-20T15:28:48.1538444Z + flutter_test 0.0.0 from sdk flutter
+2026-11-20T15:28:48.1538858Z + flutter_web_plugins 0.0.0 from sdk flutter
+2026-11-20T15:28:48.1539191Z + freezed 2.5.8 (4.0.3 available)
+2026-11-20T15:28:48.1539522Z + freezed_annotation 2.4.4 (3.1.0 available)
+2026-11-20T15:28:48.1539984Z + frontend_server_client 4.0.0 (4.2.0 available)
+2026-11-20T15:28:48.1540357Z + glob 2.2.0
+2026-11-20T15:28:48.1540669Z + go_router 14.8.1 (18.1.4 available)
+2026-11-20T15:28:48.1541033Z + graphs 2.3.2
+2026-11-20T15:28:48.1541315Z + http 1.6.0
+2026-11-20T15:28:48.1541592Z + http_multi_server 3.2.3
+2026-11-20T15:28:48.1541960Z + http_parser 4.1.2
+2026-11-20T15:28:48.1542270Z + image 4.13.1
+2026-11-20T15:28:48.1542559Z + io 1.1.0
+2026-11-20T15:28:48.1542859Z + js 0.7.2
+2026-11-20T15:28:48.1543163Z + json_annotation 4.9.0 (4.12.0 available)
+2026-11-20T15:28:48.1543608Z + json_serializable 6.9.5 (6.15.2 available)
+2026-11-20T15:28:48.1544323Z + leak_tracker 10.0.8 (11.0.2 available)
+2026-11-20T15:28:48.1544670Z + leak_tracker_flutter_testing 3.0.9 (3.0.10 available)
+2026-11-20T15:28:48.1545109Z + leak_tracker_testing 3.0.1 (3.0.2 available)
+2026-11-20T15:28:48.1545483Z + lints 5.1.1 (6.1.0 available)
+2026-11-20T15:28:48.1545927Z + logging 1.3.0
+2026-11-20T15:28:48.1546256Z + matcher 0.12.17 (0.12.20 available)
+2026-11-20T15:28:48.1546653Z + material_color_utilities 0.11.1 (0.13.1 available)
+2026-11-20T15:28:48.1547008Z + meta 1.16.0 (1.19.0 available)
+2026-11-20T15:28:48.1547246Z + mime 2.1.0
+2026-11-20T15:28:48.1547609Z + package_config 2.2.0 (3.0.0 available)
+2026-11-20T15:28:48.1547985Z + path 1.9.1
+2026-11-20T15:28:48.1548231Z + plugin_platform_interface 2.1.8
+2026-11-20T15:28:48.1548557Z + pool 1.5.3
+2026-11-20T15:28:48.1548839Z + posix 6.5.4
+2026-11-20T15:28:48.1549128Z + pub_semver 2.2.1
+2026-11-20T15:28:48.1549414Z + pubspec_parse 1.5.0 (1.7.0 available)
+2026-11-20T15:28:48.1549770Z + riverpod 2.6.1 (3.5.0 available)
+2026-11-20T15:28:48.1550146Z + shelf 1.4.2 (1.4.3 available)
+2026-11-20T15:28:48.1550500Z + shelf_web_socket 3.0.0
+2026-11-20T15:28:48.1551102Z + sky_engine 0.0.0 from sdk flutter
+2026-11-20T15:28:48.1551606Z + source_gen 2.0.0 (4.3.1 available)
+2026-11-20T15:28:48.1551983Z + source_helper 1.3.7 (1.4.0 available)
+2026-11-20T15:28:48.1552365Z + source_span 1.10.1 (1.10.2 available)
+2026-11-20T15:28:48.1552794Z + stack_trace 1.12.1 (1.12.2 available)
+2026-11-20T15:28:48.1553158Z + state_notifier 1.0.0
+2026-11-20T15:28:48.1553529Z + stream_channel 2.1.4
+2026-11-20T15:28:48.1554082Z + stream_transform 2.1.2
+2026-11-20T15:28:48.1554450Z + string_scanner 1.4.1
+2026-11-20T15:28:48.1554802Z + term_glyph 1.2.2
+2026-11-20T15:28:48.1555123Z + test_api 0.7.4 (0.7.15 available)
+2026-11-20T15:28:48.1555515Z + timing 1.0.2
+2026-11-20T15:28:48.1555811Z + typed_data 1.4.0
+2026-11-20T15:28:48.1556150Z + url_launcher 6.3.2 (6.3.3 available)
+2026-11-20T15:28:48.1556592Z + url_launcher_android 6.3.20 (6.3.35 available)
+2026-11-20T15:28:48.1556992Z + url_launcher_ios 6.3.4 (6.4.2 available)
+2026-11-20T15:28:48.1557449Z + url_launcher_linux 3.2.1 (3.2.3 available)
+2026-11-20T15:28:48.1557865Z + url_launcher_macos 3.2.3 (3.2.6 available)
+2026-11-20T15:28:48.1558302Z + url_launcher_platform_interface 2.3.2
+2026-11-20T15:28:48.1558713Z + url_launcher_web 2.4.1 (2.4.3 available)
+2026-11-20T15:28:48.1559117Z + url_launcher_windows 3.1.4 (3.1.6 available)
+2026-11-20T15:28:48.1559565Z + vector_math 2.1.4 (2.4.4 available)
+2026-11-20T15:28:48.1559944Z + vm_service 14.3.1 (15.4.0 available)
+2026-11-20T15:28:48.1560331Z + watcher 1.2.1
+2026-11-20T15:28:48.1560665Z + web 1.1.1 (1.1.2 available)
+2026-11-20T15:28:48.1561015Z + web_socket 1.0.1
+2026-11-20T15:28:48.1561357Z + web_socket_channel 3.0.3
+2026-11-20T15:28:48.1561708Z + win32 5.13.0 (6.4.0 available)
+2026-11-20T15:28:48.1562051Z + yaml 3.1.4
+2026-11-20T15:28:48.1562401Z Changed 100 dependencies!
+2026-11-20T15:28:48.1584851Z 55 packages have newer versions incompatible with dependency constraints.
+2026-11-20T15:28:48.1585402Z Try `flutter pub outdated` for more information.
+2026-11-20T15:28:48.4460056Z ##[group]Run flutter analyze || true
+2026-11-20T15:28:48.4460528Z [36;1mflutter analyze || true[0m
+2026-11-20T15:28:48.4487964Z shell: /usr/bin/bash -e {0}
+2026-11-20T15:28:48.4488371Z env:
+2026-11-20T15:28:48.4488827Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:48.4489516Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:48.4490151Z   FLUTTER_ROOT: /opt/hostedtoolcache/flutter/stable-3.29.0-x64/flutter
+2026-11-20T15:28:48.4490684Z   PUB_CACHE: /home/runner/.pub-cache
+2026-11-20T15:28:48.4491052Z ##[endgroup]
+2026-11-20T15:28:57.0475117Z Analyzing app...                                                
+2026-11-20T15:28:57.0478693Z 
+2026-11-20T15:28:57.0505469Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/alerts/alerts_screen.dart:209:66 • deprecated_member_use
+2026-11-20T15:28:57.0565336Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/alerts/alerts_screen.dart:251:62 • deprecated_member_use
+2026-11-20T15:28:57.0566973Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/alerts/alerts_screen.dart:308:60 • deprecated_member_use
+2026-11-20T15:28:57.0584781Z   error • The method 'togglePush' isn't defined for the type 'AlertsNotifier' • lib/features/alerts/alerts_screen.dart:326:61 • undefined_method
+2026-11-20T15:28:57.0585905Z 54 issues found. (ran in 8.1s)
+2026-11-20T15:28:57.0594942Z   error • The argument type 'int' can't be assigned to the parameter type 'double'.  • lib/features/alerts/alerts_screen.dart:401:45 • argument_type_not_assignable
+2026-11-20T15:28:57.0625028Z   error • The getter 'monitoredCompanySlugs' isn't defined for the type 'AlertsState' • lib/features/alerts/alerts_screen.dart:443:39 • undefined_getter
+2026-11-20T15:28:57.0654940Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/auth_screen.dart:112:60 • deprecated_member_use
+2026-11-20T15:28:57.0656838Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/auth_screen.dart:150:65 • deprecated_member_use
+2026-11-20T15:28:57.0658343Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/auth_screen.dart:153:58 • deprecated_member_use
+2026-11-20T15:28:57.0659723Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/auth_screen.dart:180:28 • deprecated_member_use
+2026-11-20T15:28:57.0661158Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/auth_screen.dart:374:56 • deprecated_member_use
+2026-11-20T15:28:57.0662717Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/onboarding_resume_screen.dart:88:60 • deprecated_member_use
+2026-11-20T15:28:57.0664400Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/onboarding_resume_screen.dart:128:58 • deprecated_member_use
+2026-11-20T15:28:57.0666033Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/onboarding_resume_screen.dart:132:63 • deprecated_member_use
+2026-11-20T15:28:57.0667581Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/onboarding_resume_screen.dart:140:64 • deprecated_member_use
+2026-11-20T15:28:57.0669080Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/onboarding_resume_screen.dart:201:65 • deprecated_member_use
+2026-11-20T15:28:57.0670957Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/onboarding_resume_screen.dart:211:62 • deprecated_member_use
+2026-11-20T15:28:57.0672297Z warning • This default clause is covered by the previous cases • lib/features/feed/feed_provider.dart:47:7 • unreachable_switch_default
+2026-11-20T15:28:57.0673746Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:220:48 • deprecated_member_use
+2026-11-20T15:28:57.0675164Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:223:52 • deprecated_member_use
+2026-11-20T15:28:57.0676573Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:390:66 • deprecated_member_use
+2026-11-20T15:28:57.0678045Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:397:50 • deprecated_member_use
+2026-11-20T15:28:57.0679455Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:427:51 • deprecated_member_use
+2026-11-20T15:28:57.0680891Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:446:41 • deprecated_member_use
+2026-11-20T15:28:57.0682270Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:488:41 • deprecated_member_use
+2026-11-20T15:28:57.0683820Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:490:60 • deprecated_member_use
+2026-11-20T15:28:57.0685205Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:529:56 • deprecated_member_use
+2026-11-20T15:28:57.0686788Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:545:56 • deprecated_member_use
+2026-11-20T15:28:57.0688175Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:587:60 • deprecated_member_use
+2026-11-20T15:28:57.0689612Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/feed/feed_screen.dart:606:30 • deprecated_member_use
+2026-11-20T15:28:57.0690894Z   error • The named parameter 'duration' isn't defined • lib/features/resume/resume_provider.dart:111:11 • undefined_named_parameter
+2026-11-20T15:28:57.0692303Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/resume/resume_screen.dart:132:58 • deprecated_member_use
+2026-11-20T15:28:57.0693837Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/resume/resume_screen.dart:200:39 • deprecated_member_use
+2026-11-20T15:28:57.0695329Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/resume/resume_screen.dart:202:58 • deprecated_member_use
+2026-11-20T15:28:57.0696768Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/resume/resume_screen.dart:224:37 • deprecated_member_use
+2026-11-20T15:28:57.0698208Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/resume/resume_screen.dart:226:56 • deprecated_member_use
+2026-11-20T15:28:57.0699822Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/resume/resume_screen.dart:427:78 • deprecated_member_use
+2026-11-20T15:28:57.0701346Z   error • The property 'projects' can't be unconditionally accessed because the receiver can be 'null' • lib/features/tailor/tailor_provider.dart:77:38 • unchecked_use_of_nullable_value
+2026-11-20T15:28:57.0702986Z   error • The property 'projects' can't be unconditionally accessed because the receiver can be 'null' • lib/features/tailor/tailor_provider.dart:78:26 • unchecked_use_of_nullable_value
+2026-11-20T15:28:57.0704622Z   error • The named parameter 'jobId' is required, but there's no corresponding argument • lib/features/tailor/tailor_provider.dart:84:30 • missing_required_argument
+2026-11-20T15:28:57.0706037Z   error • The named parameter 'profileId' is required, but there's no corresponding argument • lib/features/tailor/tailor_provider.dart:84:30 • missing_required_argument
+2026-11-20T15:28:57.0707512Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:123:47 • deprecated_member_use
+2026-11-20T15:28:57.0708914Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:125:66 • deprecated_member_use
+2026-11-20T15:28:57.0710385Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:157:57 • deprecated_member_use
+2026-11-20T15:28:57.0711814Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:215:61 • deprecated_member_use
+2026-11-20T15:28:57.0713260Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:220:62 • deprecated_member_use
+2026-11-20T15:28:57.0714804Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:266:37 • deprecated_member_use
+2026-11-20T15:28:57.0716257Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:304:48 • deprecated_member_use
+2026-11-20T15:28:57.0717773Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:329:49 • deprecated_member_use
+2026-11-20T15:28:57.0719231Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:331:68 • deprecated_member_use
+2026-11-20T15:28:57.0720646Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:384:59 • deprecated_member_use
+2026-11-20T15:28:57.0722068Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:387:69 • deprecated_member_use
+2026-11-20T15:28:57.0723502Z    info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/tailor/tailor_screen.dart:410:64 • deprecated_member_use
+2026-11-20T15:28:57.0725053Z warning • The value of the local variable 'previousApplications' isn't used • lib/features/tracker/tracker_provider.dart:158:11 • unused_local_variable
+2026-11-20T15:28:57.0725738Z 
+2026-11-20T15:28:57.0757318Z ##[group]Run flutter build apk --release > build.log 2>&1 || (tail -n 80 build.log && exit 1)
+2026-11-20T15:28:57.0758157Z [36;1mflutter build apk --release > build.log 2>&1 || (tail -n 80 build.log && exit 1)[0m
+2026-11-20T15:28:57.0780061Z shell: /usr/bin/bash -e {0}
+2026-11-20T15:28:57.0780477Z env:
+2026-11-20T15:28:57.0780964Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:57.0781645Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:28:57.0782320Z   FLUTTER_ROOT: /opt/hostedtoolcache/flutter/stable-3.29.0-x64/flutter
+2026-11-20T15:28:57.0782925Z   PUB_CACHE: /home/runner/.pub-cache
+2026-11-20T15:28:57.0783329Z ##[endgroup]
+2026-11-20T15:30:46.4429943Z "Install NDK (Side by side) 26.3.11579264 v.26.3.11579264" ready.
+2026-11-20T15:30:46.4430642Z Installing NDK (Side by side) 26.3.11579264 in /usr/local/lib/android/sdk/ndk/26.3.11579264
+2026-11-20T15:30:46.4431325Z "Install NDK (Side by side) 26.3.11579264 v.26.3.11579264" complete.
+2026-11-20T15:30:46.4431869Z "Install NDK (Side by side) 26.3.11579264 v.26.3.11579264" finished.
+2026-11-20T15:30:46.4432557Z Warning: The plugin flutter_plugin_android_lifecycle requires Android SDK version 35 or higher.
+2026-11-20T15:30:46.4433299Z For more information about build configuration, see https://flutter.dev/to/review-gradle-config.
+2026-11-20T15:30:46.4434167Z Warning: The plugin url_launcher_android requires Android SDK version 35 or higher.
+2026-11-20T15:30:46.4434869Z For more information about build configuration, see https://flutter.dev/to/review-gradle-config.
+2026-11-20T15:30:46.4435743Z Your project is configured to compile against Android SDK 34, but the following plugin(s) require to be compiled against a higher Android SDK version:
+2026-11-20T15:30:46.4436603Z - flutter_plugin_android_lifecycle compiles against Android SDK 35
+2026-11-20T15:30:46.4437146Z - url_launcher_android compiles against Android SDK 35
+2026-11-20T15:30:46.4437722Z Fix this issue by compiling against the highest Android SDK version (they are backward compatible).
+2026-11-20T15:30:46.4438487Z Add the following to /home/runner/work/AI-intern-search/AI-intern-search/app/android/app/build.gradle:
+2026-11-20T15:30:46.4438904Z 
+2026-11-20T15:30:46.4439028Z     android {
+2026-11-20T15:30:46.4439360Z         compileSdk = 35
+2026-11-20T15:30:46.4439690Z         ...
+2026-11-20T15:30:46.4440047Z     }
+2026-11-20T15:30:46.4440159Z 
+2026-11-20T15:30:46.4440535Z lib/features/alerts/alerts_screen.dart:326:61: Error: The method 'togglePush' isn't defined for the class 'AlertsNotifier'.
+2026-11-20T15:30:46.4441320Z  - 'AlertsNotifier' is from 'package:app/features/alerts/alerts_provider.dart' ('lib/features/alerts/alerts_provider.dart').
+2026-11-20T15:30:46.4442209Z Try correcting the name to the name of an existing method, or defining a method named 'togglePush'.
+2026-11-20T15:30:46.4442699Z                           ref.read(alertsProvider.notifier).togglePush(val),
+2026-11-20T15:30:46.4443047Z                                                             ^^^^^^^^^^
+2026-11-20T15:30:46.4443579Z lib/features/alerts/alerts_screen.dart:401:49: Error: The argument type 'int' can't be assigned to the parameter type 'double'.
+2026-11-20T15:30:46.4444482Z                           .setMinMatchScore(val.toInt()),
+2026-11-20T15:30:46.4444794Z                                                 ^
+2026-11-20T15:30:46.4445320Z lib/features/alerts/alerts_screen.dart:443:39: Error: The getter 'monitoredCompanySlugs' isn't defined for the class 'AlertsState'.
+2026-11-20T15:30:46.4445981Z  - 'AlertsState' is from 'package:app/features/alerts/alerts_provider.dart' ('lib/features/alerts/alerts_provider.dart').
+2026-11-20T15:30:46.4446655Z Try correcting the name to the name of an existing getter, or defining a getter or field named 'monitoredCompanySlugs'.
+2026-11-20T15:30:46.4447144Z                       children: state.monitoredCompanySlugs.map((slug) {
+2026-11-20T15:30:46.4447578Z                                       ^^^^^^^^^^^^^^^^^^^^^
+2026-11-20T15:30:46.4448047Z lib/features/resume/resume_provider.dart:111:11: Error: No named parameter with the name 'duration'.
+2026-11-20T15:30:46.4448479Z           duration: 'June 2024 - Sept 2024',
+2026-11-20T15:30:46.4448792Z           ^^^^^^^^
+2026-11-20T15:30:46.4449184Z lib/features/resume/models/master_profile.dart:75:9: Context: Found this candidate, but the arguments don't match.
+2026-11-20T15:30:46.4449658Z   const ExperienceItem({
+2026-11-20T15:30:46.4449923Z         ^^^^^^^^^^^^^^
+2026-11-20T15:30:46.4450287Z lib/features/tailor/tailor_provider.dart:84:50: Error: Required named parameter 'jobId' must be provided.
+2026-11-20T15:30:46.4450788Z     final tailoredResponse = TailorResumeResponse(
+2026-11-20T15:30:46.4451100Z                                                  ^
+2026-11-20T15:30:46.4451568Z lib/features/tailor/models/tailor_models.dart:27:9: Context: Found this candidate, but the arguments don't match.
+2026-11-20T15:30:46.4452014Z   const TailorResumeResponse({
+2026-11-20T15:30:46.4452278Z         ^^^^^^^^^^^^^^^^^^^^
+2026-11-20T15:30:46.4452793Z lib/features/tailor/tailor_provider.dart:77:38: Error: Property 'projects' cannot be accessed on 'MasterProfile?' because it is potentially null.
+2026-11-20T15:30:46.4453473Z  - 'MasterProfile' is from 'package:app/features/resume/models/master_profile.dart' ('lib/features/resume/models/master_profile.dart').
+2026-11-20T15:30:46.4454244Z Try accessing using ?. instead.
+2026-11-20T15:30:46.4454561Z     if (_profile != null && _profile.projects.isNotEmpty) {
+2026-11-20T15:30:46.4454912Z                                      ^^^^^^^^
+2026-11-20T15:30:46.4455424Z lib/features/tailor/tailor_provider.dart:35:24: Context: '_profile' couldn't be promoted because field promotion is only available in Dart 3.2 and above.
+2026-11-20T15:30:46.4456007Z See http://dart.dev/go/non-promo-field-promotion-unavailable
+2026-11-20T15:30:46.4456398Z   final MasterProfile? _profile;
+2026-11-20T15:30:46.4456647Z                        ^
+2026-11-20T15:30:46.4457163Z lib/features/tailor/tailor_provider.dart:78:26: Error: Property 'projects' cannot be accessed on 'MasterProfile?' because it is potentially null.
+2026-11-20T15:30:46.4457849Z  - 'MasterProfile' is from 'package:app/features/resume/models/master_profile.dart' ('lib/features/resume/models/master_profile.dart').
+2026-11-20T15:30:46.4458382Z Try accessing using ?. instead.
+2026-11-20T15:30:46.4458659Z       final p = _profile.projects.first;
+2026-11-20T15:30:46.4458939Z                          ^^^^^^^^
+2026-11-20T15:30:46.4459467Z lib/features/tailor/tailor_provider.dart:35:24: Context: '_profile' couldn't be promoted because field promotion is only available in Dart 3.2 and above.
+2026-11-20T15:30:46.4460091Z See http://dart.dev/go/non-promo-field-promotion-unavailable
+2026-11-20T15:30:46.4460496Z   final MasterProfile? _profile;
+2026-11-20T15:30:46.4460753Z                        ^
+2026-11-20T15:30:46.4461036Z Target kernel_snapshot_program failed: Exception
+2026-11-20T15:30:46.4461246Z 
+2026-11-20T15:30:46.4461250Z 
+2026-11-20T15:30:46.4461384Z FAILURE: Build failed with an exception.
+2026-11-20T15:30:46.4461555Z 
+2026-11-20T15:30:46.4461678Z * What went wrong:
+2026-11-20T15:30:46.4462005Z Execution failed for task ':app:compileFlutterBuildRelease'.
+2026-11-20T15:30:46.4462516Z > Process 'command '/opt/hostedtoolcache/flutter/stable-3.29.0-x64/flutter/bin/flutter'' finished with non-zero exit value 1
+2026-11-20T15:30:46.4462913Z 
+2026-11-20T15:30:46.4463023Z * Try:
+2026-11-20T15:30:46.4463284Z > Run with --stacktrace option to get the stack trace.
+2026-11-20T15:30:46.4463797Z > Run with --info or --debug option to get more log output.
+2026-11-20T15:30:46.4464159Z > Run with --scan to get full insights.
+2026-11-20T15:30:46.4464463Z > Get more help at https://help.gradle.org.
+2026-11-20T15:30:46.4464668Z 
+2026-11-20T15:30:46.4464788Z BUILD FAILED in 1m 48s
+2026-11-20T15:30:46.4465197Z Running Gradle task 'assembleRelease'...                          108.8s
+2026-11-20T15:30:46.4465673Z Gradle task assembleRelease failed with exit code 1
+2026-11-20T15:30:46.4469267Z ##[error]Process completed with exit code 1.
+2026-11-20T15:30:46.4513007Z ##[group]Run actions/upload-artifact@v4
+2026-11-20T15:30:46.4513297Z with:
+2026-11-20T15:30:46.4513789Z   name: build-log
+2026-11-20T15:30:46.4514068Z   path: app/build.log
+2026-11-20T15:30:46.4514319Z   if-no-files-found: warn
+2026-11-20T15:30:46.4514604Z   compression-level: 6
+2026-11-20T15:30:46.4514928Z   overwrite: false
+2026-11-20T15:30:46.4515192Z   include-hidden-files: false
+2026-11-20T15:30:46.4515466Z env:
+2026-11-20T15:30:46.4515775Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:30:46.4516211Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.21-9/x64
+2026-11-20T15:30:46.4516722Z   FLUTTER_ROOT: /opt/hostedtoolcache/flutter/stable-3.29.0-x64/flutter
+2026-11-20T15:30:46.4517077Z   PUB_CACHE: /home/runner/.pub-cache
+2026-11-20T15:30:46.4517354Z ##[endgroup]
+2026-11-20T15:30:46.5719813Z (node:3130) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T15:30:46.5720730Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T15:30:46.5752466Z With the provided path, there will be 1 file uploaded
+2026-11-20T15:30:46.5756061Z Artifact name is valid!
+2026-11-20T15:30:46.5756557Z Root directory input is valid!
+2026-11-20T15:30:46.7818802Z Beginning upload of artifact content to blob storage
+2026-11-20T15:30:46.7988088Z (node:3130) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-20T15:30:46.8468525Z Uploaded bytes 1780
+2026-11-20T15:30:46.8625420Z Finished uploading artifact content to blob storage!
+2026-11-20T15:30:46.8626139Z SHA256 digest of uploaded artifact zip is efd8c3a2da5f9ca6270b36d3492fffdb3cd7a9e4f2e3229917d111d78ed98933
+2026-11-20T15:30:46.8627146Z Finalizing artifact upload
+2026-11-20T15:30:47.4039265Z Artifact build-log.zip successfully finalized. Artifact ID 14642821600
+2026-11-20T15:30:47.4040236Z Artifact build-log has been successfully uploaded! Final size is 1780 bytes. Artifact ID is 14642821600
+2026-11-20T15:30:47.4044338Z Artifact download URL: https://github.com/karthickvel123/AI-intern-search/actions/runs/44763603197/artifacts/14642821600
+2026-11-20T15:30:47.4253851Z Post job cleanup.
+2026-11-20T15:30:47.4258275Z ##[start-action display=Cache pub dependencies;id=__ac7b1640-8610-4a87-a36b-accf4681bbd4.cache-pub]
+2026-11-20T15:30:47.4260508Z ##[end-action id=__ac7b1640-8610-4a87-a36b-accf4681bbd4.cache-pub;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T15:30:47.4262563Z ##[start-action display=Cache Flutter;id=__ac7b1640-8610-4a87-a36b-accf4681bbd4.cache-flutter]
+2026-11-20T15:30:47.4265013Z ##[end-action id=__ac7b1640-8610-4a87-a36b-accf4681bbd4.cache-flutter;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T15:30:47.4322230Z Post job cleanup.
+2026-11-20T15:30:47.5323213Z (node:3143) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T15:30:47.5324006Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T15:30:47.5451746Z Post job cleanup.
+2026-11-20T15:30:47.6106720Z [command]/usr/bin/git version
+2026-11-20T15:30:47.6136406Z git version 2.56.1
+2026-11-20T15:30:47.6160304Z Temporarily overriding HOME='/home/runner/work/_temp/1525732e-8b54-4a20-b188-5cbc0894b313' before making global git config changes
+2026-11-20T15:30:47.6161429Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-20T15:30:47.6163420Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AI-intern-search/AI-intern-search
+2026-11-20T15:30:47.6191351Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T15:30:47.6216092Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-20T15:30:47.6403481Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T15:30:47.6423420Z http.https://github.com/.extraheader
+2026-11-20T15:30:47.6432055Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-20T15:30:47.6461966Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-20T15:30:47.6654655Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T15:30:47.6668041Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-20T15:30:47.6955554Z Cleaning up orphan processes
+2026-11-20T15:30:47.7368517Z Terminate orphan process: pid (2873) (java)
+2026-11-20T15:30:47.7411260Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
