@@ -56,7 +56,7 @@ class ResumeNotifier extends StateNotifier<ResumeState> {
   ResumeNotifier(this._dio) : super(const ResumeState());
 
   void loadSampleProfile() {
-    const sampleProfile = MasterProfile(
+    final sampleProfile = MasterProfile(
       name: 'Alex Carter',
       email: 'alex.carter@stanford.edu',
       phone: '+1 (555) 019-2834',

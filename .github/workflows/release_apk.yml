@@ -45,7 +45,7 @@ jobs:
       - name: Analyze Code
         working-directory: ./app
         run: |
-          flutter analyze --no-fatal-infos || true
+          flutter analyze
 
       - name: Build Android Release APK
         working-directory: ./app

@@ -2,7 +2,7 @@ import 'models/job_match.dart';
 
 /// Top-tier curated real-world internships and jobs for resilient, offline-ready experience
 final List<JobMatchItem> kCuratedTechJobs = [
-  const JobMatchItem(
+  JobMatchItem(
     id: 'stripe-swe-intern',
     title: 'Software Engineer Intern - Core Payments',
     company: 'Stripe',
@@ -19,7 +19,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Exceptional match: Your backend API architecture and database design skills directly match Stripe’s distributed payments platform.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'google-swe-intern',
     title: 'Software Engineering Intern - Summer 2025',
     company: 'Google',
@@ -36,7 +36,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Strong match: Your core computer science fundamentals and structured software engineering projects match Google’s technical bar.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'figma-frontend-intern',
     title: 'Frontend Software Engineer Intern',
     company: 'Figma',
@@ -53,7 +53,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'High match: Your front-end mobile and web experience with responsive state management matches Figma’s collaborative UI engineering needs.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'spotify-mobile-intern',
     title: 'Mobile Engineer Intern (Flutter / Android)',
     company: 'Spotify',
@@ -70,7 +70,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Superb match: Your Flutter Material 3 architecture, GoRouter, and Riverpod expertise align 1:1 with Spotify’s cross-platform team.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'openai-ml-intern',
     title: 'AI Research & Engineering Intern',
     company: 'OpenAI',
@@ -87,7 +87,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Great match: Your work with structured LLM JSON outputs and vector similarity search mirrors OpenAI’s developer platform stack.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'discord-infra-intern',
     title: 'Core Infrastructure Software Engineer Intern',
     company: 'Discord',
@@ -104,7 +104,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Solid match: Your backend Python async microservices foundation provides a great launchpad for Discord’s real-time communication stack.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'cloudflare-systems-intern',
     title: 'Systems Engineering Intern - Global Edge Network',
     company: 'Cloudflare',
@@ -121,7 +121,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Good match: Your networking fundamentals and Linux containerization knowledge fit Cloudflare’s edge infrastructure team.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'netflix-platform-intern',
     title: 'Platform Engineering Intern',
     company: 'Netflix',
@@ -138,7 +138,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Reliable match: Your clean code practices and API testing capabilities align with Netflix’s developer tooling standards.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'databricks-distributed-intern',
     title: 'Distributed Systems Software Engineer Intern',
     company: 'Databricks',
@@ -155,7 +155,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Good match: Strong SQL and data manipulation fundamentals provide a solid bridge to Databricks’ analytics engine.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'amazon-aws-intern',
     title: 'Software Development Engineer Intern - AWS Cloud',
     company: 'Amazon',
@@ -172,7 +172,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Standard match: Meets Amazon SDE technical bar with solid project architecture, modular design, and API communication.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'apple-coreos-intern',
     title: 'CoreOS Systems Software Engineer Intern',
     company: 'Apple',
@@ -189,7 +189,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Viable match: Strong foundational understanding of operating systems and low-level performance concepts.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'uber-fullstack-intern',
     title: 'Full-Stack Developer Intern',
     company: 'Uber',
@@ -206,7 +206,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'High match: Your full-stack experience connecting mobile frontends to high-performance Python backends directly fits Uber dispatch teams.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'brex-fintech-intern',
     title: 'Financial Infrastructure Engineer Intern',
     company: 'Brex',
@@ -223,7 +223,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'High match: Remote-ready engineering with solid PostgreSQL and API design matches Brex’s spend platform.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'affirm-ml-intern',
     title: 'Machine Learning Engineer Intern',
     company: 'Affirm',
@@ -240,7 +240,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     matchReason:
         'Solid match: Mathematical data skills and Python fluency match Affirm’s credit intelligence team.',
   ),
-  const JobMatchItem(
+  JobMatchItem(
     id: 'palantir-fde-intern',
     title: 'Forward Deployed Software Engineer Intern',
     company: 'Palantir',
