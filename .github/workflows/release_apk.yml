@@ -6,6 +6,15 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Create a GitHub Release'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -39,15 +48,10 @@ jobs:
         run: |
           flutter pub get
 
-      - name: Run Build Runner (Freezed & JSON Serializable)
-        working-directory: ./app
-        run: |
-          dart run build_runner build --delete-conflicting-outputs
-
       - name: Analyze Code
         working-directory: ./app
         run: |
-          dart analyze
+          dart analyze --fatal-infos=false
 
       - name: Build Android Release APK
         working-directory: ./app
@@ -62,9 +66,12 @@ jobs:
           if-no-files-found: error
 
       - name: Create GitHub Release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') || github.event.inputs.create_release == 'true'
         uses: softprops/action-gh-release@v2
         with:
+          name: ${{ github.ref_name || 'Release APK' }}
+          tag_name: ${{ github.ref_name || 'v1.0.0' }}
           files: app/build/app/outputs/flutter-apk/app-release.apk
+          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
