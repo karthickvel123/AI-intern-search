@@ -11,7 +11,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Join the Stripe Core Payments infrastructure team. You will build and scale reliable, fault-tolerant financial APIs handling billions of dollars in volume worldwide. Requirements: Experience with Python, Java, or Go; solid foundation in distributed systems, REST APIs, and relational databases.',
     applyUrl: 'https://stripe.com/jobs',
-    postedHoursAgo: 3,
+    postedHoursAgo: 3.0,
     ghostJobFlag: false,
     matchScore: 96,
     matchedSkills: ['Python', 'FastAPI', 'PostgreSQL', 'REST APIs', 'Git', 'Docker'],
@@ -28,7 +28,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Google SWE interns work on core products including Search, Cloud, Android, and YouTube. You will develop scalable algorithms, optimize distributed cloud infrastructure, and write clean, maintainable production code.',
     applyUrl: 'https://careers.google.com/jobs',
-    postedHoursAgo: 8,
+    postedHoursAgo: 8.0,
     ghostJobFlag: false,
     matchScore: 93,
     matchedSkills: ['Algorithms', 'Python', 'C++', 'Data Structures', 'Git'],
@@ -45,7 +45,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'At Figma, we build the collaborative design platform that powers the modern internet. Looking for an intern with passion for web performance, modern UI frameworks (React, WebGL, Flutter, TypeScript), and delightful user interactions.',
     applyUrl: 'https://www.figma.com/careers/',
-    postedHoursAgo: 12,
+    postedHoursAgo: 12.0,
     ghostJobFlag: false,
     matchScore: 91,
     matchedSkills: ['Flutter', 'TypeScript', 'State Management', 'UI/UX Design', 'CSS'],
@@ -62,7 +62,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Build the future of audio listening. Spotify’s Mobile Engineering team designs client applications used by 600M+ people. We look for strong understanding of mobile architecture, responsive design, offline-first caching, and reactive state management.',
     applyUrl: 'https://www.lifeatspotify.com/jobs',
-    postedHoursAgo: 5,
+    postedHoursAgo: 5.0,
     ghostJobFlag: false,
     matchScore: 95,
     matchedSkills: ['Flutter', 'Dart', 'Riverpod', 'Mobile Architecture', 'Dio/HTTP'],
@@ -79,7 +79,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Work alongside research scientists on large language models, structured evaluation, embeddings, and real-time multimodal inference pipelines. Passion for PyTorch, Python, vector databases, and generative agents required.',
     applyUrl: 'https://openai.com/careers',
-    postedHoursAgo: 6,
+    postedHoursAgo: 6.0,
     ghostJobFlag: false,
     matchScore: 89,
     matchedSkills: ['Python', 'Generative AI', 'Vector Embeddings', 'Pydantic', 'FastAPI'],
@@ -96,7 +96,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Discord connects 200M+ active users in real-time. Join our Core Infrastructure engineering group to build high-throughput messaging pipelines, low-latency microservices, and reliable cache layers.',
     applyUrl: 'https://discord.com/careers',
-    postedHoursAgo: 16,
+    postedHoursAgo: 16.0,
     ghostJobFlag: false,
     matchScore: 88,
     matchedSkills: ['Python', 'FastAPI', 'Docker', 'PostgreSQL', 'AsyncIO'],
@@ -113,7 +113,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Help build a better internet. Cloudflare protects and accelerates millions of websites globally. We seek interns who understand TCP/IP networking, Linux systems, edge workers, and distributed security.',
     applyUrl: 'https://www.cloudflare.com/careers/jobs/',
-    postedHoursAgo: 18,
+    postedHoursAgo: 18.0,
     ghostJobFlag: false,
     matchScore: 87,
     matchedSkills: ['Linux', 'Networking', 'Python', 'Git', 'Docker'],
@@ -130,7 +130,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Netflix delivers high-bandwidth video streaming to 270M+ global households. Platform engineering interns build internal developer tooling, cloud deployment orchestrators, and automated performance observability systems.',
     applyUrl: 'https://jobs.netflix.com',
-    postedHoursAgo: 22,
+    postedHoursAgo: 22.0,
     ghostJobFlag: false,
     matchScore: 86,
     matchedSkills: ['Python', 'Docker', 'REST APIs', 'Cloud Computing', 'Git'],
@@ -147,7 +147,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Build the Data Intelligence Platform. You will contribute to Apache Spark engines, Delta Lake storage optimizations, and high-performance querying on petabyte-scale data lakes.',
     applyUrl: 'https://www.databricks.com/company/careers',
-    postedHoursAgo: 24,
+    postedHoursAgo: 24.0,
     ghostJobFlag: false,
     matchScore: 85,
     matchedSkills: ['SQL', 'Python', 'Algorithms', 'Data Structures', 'PostgreSQL'],
@@ -164,7 +164,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Join Amazon Web Services (AWS) to build cloud services powering millions of global businesses. Interns tackle real-world customer problems, design microservices, write unit and integration tests, and deploy to AWS production pipelines.',
     applyUrl: 'https://amazon.jobs',
-    postedHoursAgo: 30,
+    postedHoursAgo: 30.0,
     ghostJobFlag: false,
     matchScore: 84,
     matchedSkills: ['Java/Python', 'Object-Oriented Design', 'Unit Testing', 'REST APIs'],
@@ -181,7 +181,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Apple’s CoreOS team is responsible for the foundation of iOS, macOS, watchOS, and visionOS. Looking for talented students with strong understanding of operating systems, memory management, and concurrent computing.',
     applyUrl: 'https://jobs.apple.com',
-    postedHoursAgo: 36,
+    postedHoursAgo: 36.0,
     ghostJobFlag: false,
     matchScore: 82,
     matchedSkills: ['Computer Architecture', 'C/C++', 'Concurrency', 'Git'],
@@ -198,7 +198,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Uber moves people and things in real-time across 10,000+ cities. Full-stack interns build responsive customer web and mobile dashboards, real-time driver tracking features, and dispatch algorithms.',
     applyUrl: 'https://www.uber.com/us/en/careers/',
-    postedHoursAgo: 10,
+    postedHoursAgo: 10.0,
     ghostJobFlag: false,
     matchScore: 92,
     matchedSkills: ['Flutter', 'Python', 'FastAPI', 'REST APIs', 'State Management'],
@@ -215,7 +215,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Brex builds corporate cards and enterprise spend management. Looking for engineers who care about high reliability, clean architectural boundaries, and financial precision in distributed environments.',
     applyUrl: 'https://www.brex.com/careers',
-    postedHoursAgo: 14,
+    postedHoursAgo: 14.0,
     ghostJobFlag: false,
     matchScore: 90,
     matchedSkills: ['Python', 'PostgreSQL', 'Docker', 'REST APIs', 'Git'],
@@ -232,7 +232,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Affirm provides honest financial products. The ML team builds underwriting, fraud detection, and credit assessment models operating in real-time under tight latency constraints.',
     applyUrl: 'https://www.affirm.com/careers',
-    postedHoursAgo: 20,
+    postedHoursAgo: 20.0,
     ghostJobFlag: false,
     matchScore: 86,
     matchedSkills: ['Python', 'Vector Math', 'Data Analysis', 'Git'],
@@ -249,7 +249,7 @@ final List<JobMatchItem> kCuratedTechJobs = [
     description:
         'Palantir FDEs sit at the intersection of technical architecture and critical client missions. You will rapidly build data integration pipelines, user interfaces, and analytics dashboards using Foundry and Gotham.',
     applyUrl: 'https://www.palantir.com/careers/',
-    postedHoursAgo: 28,
+    postedHoursAgo: 28.0,
     ghostJobFlag: false,
     matchScore: 85,
     matchedSkills: ['Full Stack', 'Python', 'SQL', 'Problem Solving', 'Git'],

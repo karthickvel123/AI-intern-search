@@ -5,6 +5,7 @@ class JobMatchItem {
   final String company;
   final String? location;
   final bool isRemote;
+  final String description;
   final String? applyUrl;
   final String source;
   final int matchScore;
@@ -21,6 +22,7 @@ class JobMatchItem {
     required this.company,
     this.location,
     this.isRemote = false,
+    this.description = '',
     this.applyUrl,
     this.source = 'ATS',
     required this.matchScore,
@@ -39,6 +41,7 @@ class JobMatchItem {
       company: json['company'] as String? ?? 'Company',
       location: json['location'] as String?,
       isRemote: json['is_remote'] as bool? ?? false,
+      description: json['description'] as String? ?? '',
       applyUrl: json['apply_url'] as String?,
       source: json['source'] as String? ?? 'ATS',
       matchScore: (json['match_score'] as num?)?.toInt() ?? 0,
@@ -63,6 +66,7 @@ class JobMatchItem {
         'company': company,
         if (location != null) 'location': location,
         'is_remote': isRemote,
+        'description': description,
         if (applyUrl != null) 'apply_url': applyUrl,
         'source': source,
         'match_score': matchScore,
